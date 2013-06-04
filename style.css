@@ -1,13 +1,25 @@
+/*html {
+  background: url('money.jpg') no-repeat center center fixed;
+  background-size: cover;
+}
+*/
+
 #banner {
   color: white;
-  width: 1000px;
   text-align: center;
-  background: green;
-  border: 2px solid black;
   font-size: 40px;
   margin: 60px auto;
+  background: black;
+  width: 1000px;
+  border-radius: 5px;
 }
 
+#container {
+  background: black;
+  width: 1000px;
+  margin: 0 auto;
+  border-radius: 5px;
+}
 
 #leftParent{
   float: left;
@@ -15,7 +27,6 @@
 }
 
 #left, #right {
-  border: 1px dotted red;
   height: 50px;
   color: black;
   font-size: 45px;
