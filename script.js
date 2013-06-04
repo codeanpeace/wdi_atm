@@ -18,24 +18,24 @@
 $(document).ready(function() {
 
   var c_amount = 1000.00
-  var c_display = $("#left, p").text("$" + c_amount);
+  var c_display = $("#left").text("$" + c_amount);
 
   var s_amount = 2300.00
-  var s_display = $("#right, p").text("$" + s_amount);
+  var s_display = $("#right").text("$" + s_amount);
 
-  $('#c-deposit').on('click', checkingDeposit)
-  $('#c-withdraw').on('click', checkingWithdraw)
+  $("#c-deposit").on("click", checkingDeposit)
+  $("#c-withdraw").on("click", checkingWithdraw)
 
-  $('#s-deposit').on('click', savingsDeposit)
-  $('#s-withdraw').on('click', savingsWithdraw)
+  $("#s-deposit").on("click", savingsDeposit)
+  $("#s-withdraw").on("click", savingsWithdraw)
 
 // Deposit on Checking
   function checkingDeposit() {
     var c_form = parseInt($(".c-amount").val()) //set var to the form value
 
-    c_amount = c_amount + (c_form) //redefine the checking amount
-    c_display = $("#left, p").text("$" + c_amount).css('color', 'black'); //set the display to the dollar sign string value and chain the css method to a default of black
-    $('.c-amount').val(""); //this resets the form back to an empty string
+    c_amount = c_amount + c_form //redefine the checking amount
+    c_display = $("#left").text("$" + c_amount).removeClass("warning")//.css("color", "black"); //set the display to the dollar sign string value and chain the css method to a default of black
+    $(".c-amount").val(""); //this resets the form back to an empty string
 
     event.preventDefault();
   }
@@ -45,20 +45,22 @@ $(document).ready(function() {
 
     var c_form = (parseInt($(".c-amount").val())); // sets the var of the form inside this function
 
-    if ((c_form) > (c_amount + s_amount)) { //if statements from psuedocode above
+    if (c_form > (c_amount + s_amount)) { //if statements from psuedocode above
       alert("You don't have enough money to make this withdrawl");
-    } else if (c_form >= c_amount) {
-      $('#left, p').css('color', 'red'); // had to rework the logic on this else statement, moving the 0.00 amount to the bottom so that if the amount was zero but nothing was taken from savings, then the text would still be red.
-      c_display = $("#left, p").text("$" + c_amount);
+    } 
+    else if (c_form >= c_amount) {
+      $("#left").addClass("warning")//.css("color", "red"); // had to rework the logic on this else statement, moving the 0.00 amount to the bottom so that if the amount was zero but nothing was taken from savings, then the text would still be red.
+      c_display = $("#left").text("$" + c_amount);
 
-      s_amount = ((c_amount + s_amount) - (c_form));
-      s_display = $("#right, p").text("$" + s_amount);
+      s_amount = (c_amount + s_amount - c_form);
+      s_display = $("#right").text("$" + s_amount);
       c_amount = 0.00
-    } else {
-      c_amount = c_amount - (c_form);
+    } 
+    else {
+      c_amount = c_amount - c_form;
     }
 
-    display = $("#left, p").text("$" + c_amount);
+    display = $("#left").text("$" + c_amount);
 
     event.preventDefault();
   }
@@ -66,9 +68,9 @@ $(document).ready(function() {
   // Deposit on Savings
   function savingsDeposit() {
     var s_form = parseInt($(".s-amount").val())
-    s_amount = s_amount + (s_form)
-    s_display = $("#right, p").text("$" + s_amount).css('color', 'black');
-    $('.s-amount').val("");
+    s_amount += s_form
+    s_display = $("#right").text("$" + s_amount).removeClass("warning")//.css("color", "black");
+    $(".s-amount").val("");
 
     event.preventDefault();
   }
@@ -80,20 +82,22 @@ $(document).ready(function() {
 
     if (s_form > s_amount) {
       alert("You don't have enough money to make this withdrawl");
-      $('.s-amount').val("");
+      $(".s-amount").val("");
 
-    } else {
+    } 
+    else {
       s_amount = s_amount - s_form;
       if (s_amount == 0.00) {
-        $('#right, p').css('color', 'red');
-        s_display = $("#right, p").text("$" + s_amount);
-      } else {
-        $('#right, p').css('color', 'black');
-        s_display = $("#right, p").text("$" + s_amount);
+        $("#right").addClass("warning")//.css("color", "red");
+        s_display = $("#right").text("$" + s_amount);
+      } 
+      else {
+        $("#right").removeClass("warning")//.css("color", "black");
+        s_display = $("#right").text("$" + s_amount);
       }
     }
 
-    display = $("#right, p").text("$" + s_amount);
+    display = $("#right").text("$" + s_amount);
 
     event.preventDefault();
   }
@@ -109,4 +113,3 @@ $(document).ready(function() {
 //   A. if withdrawl > savings, alert invalid....
 //   B. else subtract withdrawl from savings
 // 5. deposit:  add desposit to checking and update
-

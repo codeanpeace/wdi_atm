@@ -34,13 +34,13 @@
   font-weight: bold;
 }
 
-#rightParent{
+#rightParent {
   float: right;
   margin: 0 200px auto 100px;
 }
 
-
-
-
+#left.warning, #right.warning {
+  color: red;
+}  
 
 
