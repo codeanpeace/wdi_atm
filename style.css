@@ -1,0 +1,23 @@
+#banner {
+  color: white;
+  width: 600px;
+  text-align: center;
+  background: blue;
+  border: 2px solid black;
+  font-size: 25px;
+  margin: 0 auto;
+}
+
+
+#leftParent{
+  float: left;
+}
+
+#left .screen{
+  border: 1px dotted red;
+  height: 50px;
+}
+
+#rightParent{
+  float: right;
+}

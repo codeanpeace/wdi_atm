@@ -1,0 +1,60 @@
+<!-- WDI Bank Account Calulator:
+  1. One page, with checking and saving on each side
+  2. Checking: $1,000
+  3. Saving: $2,300
+  4. Checking Overdraft Protection
+  5. No Savings Overdraft Protection
+  6. Zero Balance: Red Background
+  7. If insufficient total funds, no not allow withdrawal
+  -->
+
+<!DOCTYPE html>
+<html>
+  <head>
+      <title>WDI Bank Account Calcualtor</title>
+      <link rel="stylesheet" href="style.css">
+      <script src="jquery.js"></script>
+      <script src="script.js"></script>
+  </head>
+
+  <body>
+    <div id="banner">WDI Bank Account Calculator</div>
+
+    <!--- Checking -->
+
+
+
+    <div id="leftParent">
+      <div id="left" class="screen">
+        <p></p>
+      </div>
+
+      <form>
+        <fieldset>
+          <legend>checking</legend>
+            <input id="amount">
+            <button id="c-deposit">deposit</button>
+            <button id="c-withdraw">withdraw</button>
+          </fieldset>
+        <fieldset>
+      </form>
+    </div>
+
+
+<!--- Savings -->
+
+
+
+    <div id="rightParent">
+      <div id="right" class="screen"></div>
+
+      <form id="savingsForm" class="half_screen">
+        <input id="input" type="text">
+      </form>
+
+      <button id="savings" class="withdrawl">withdrawl</button>
+      <button id="savings" class="deposit">depsoit</button>
+    </div>
+
+  </body>
+</html>
