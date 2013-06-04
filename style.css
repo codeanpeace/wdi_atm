@@ -1,23 +1,35 @@
 #banner {
   color: white;
-  width: 600px;
+  width: 1000px;
   text-align: center;
-  background: blue;
+  background: green;
   border: 2px solid black;
-  font-size: 25px;
-  margin: 0 auto;
+  font-size: 40px;
+  margin: 60px auto;
 }
 
 
 #leftParent{
   float: left;
+  margin: 0 100px auto 200px;
 }
 
-#left .screen{
+#left, #right {
   border: 1px dotted red;
   height: 50px;
+  color: black;
+  font-size: 45px;
+  text-align: center;
+  font-weight: bold;
 }
 
 #rightParent{
   float: right;
+  margin: 0 200px auto 100px;
 }
+
+
+
+
+
+
